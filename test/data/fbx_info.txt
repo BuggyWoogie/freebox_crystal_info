@@ -1,0 +1,105 @@
+______________________________________________________________________
+
+                      Etat de la Freebox                           
+______________________________________________________________________
+
+
+Informations générales :
+========================
+
+  Modèle                         Freebox ADSL            
+  Version du firmware            1.5.11                  
+  Mode de connection             Dégroupé                
+  Temps depuis la mise en route  36 jours, 18 heures, 49 minutes
+
+
+Téléphone :
+===========
+
+  Etat                           Ok                      
+  Etat du combiné                Raccroché               
+  Sonnerie                       Inactive                
+
+
+Adsl :
+======
+
+  Etat                           Showtime                
+  Protocole                      ADSL2+                  
+  Mode                           Interleaved             
+
+                         Descendant         Montant           
+                         --                 --                
+  Débit ATM              30276 kb/s         3244 kb/s         
+  Marge de bruit         4.30 dB            3.50 dB           
+  Atténuation            41.00 dB           10.90 dB          
+  FEC                    47076              17                
+  CRC                    2457               0                 
+  HEC                    513                0                 
+
+ Journal de connexion adsl :
+ ---------------------------
+
+  Date                         Etat             Débit (kb/s)    
+  --                           --               --              
+  25/12/2019 à 02:36:15        Connexion        30276 / 3225    
+  25/12/2019 à 02:35:51        Déconnexion                      
+  Mise en route                Connexion        30272 / 3025    
+
+
+Wifi :
+======
+
+  Etat                           Ok                      
+  Modèle                         Ralink RT2880           
+  Canal                          13                      
+  État du réseau                 Activé                  
+  Ssid                           my_wifi                
+  Type de clé                    WPA (TKIP+AES)          
+  FreeWifi                       Actif                   
+  FreeWifi Secure                Actif                   
+
+
+Réseau :
+========
+
+  Adresse MAC Freebox            00:09:EF:33:BA:D0       
+  Adresse IP                     92.113.111.69           
+  IPv6                           Activé                  
+  Mode routeur                   Activé                  
+  Adresse IP privée              192.168.0.254           
+  Adresse IP DMZ                 192.168.0.0             
+  Adresse IP Freeplayer          192.168.0.0             
+  Réponse au ping                Activé                  
+  Proxy Wake On Lan              Désactivé               
+  Serveur DHCP                   Activé                  
+  Plage d'adresses dynamique     192.168.0.5 - 192.168.0.100
+
+ Attributions dhcp :
+ -------------------
+
+  Adresse MAC            Adresse IP                  
+  --                     --                          
+  70:EE:CC:CC:CC:CC      192.168.0.10                
+  F4:F5:CC:CC:CC:CC      192.168.0.12                
+  A8:9C:CC:CC:CC:CC      192.168.0.13                
+
+ Redirections de ports :
+ -----------------------
+
+  Protocole              Port source    Destination    Port destination
+  --                     --             --             --            
+  TCP                    22             192.168.0.11   22         
+  TCP                    443            192.168.0.11   443           
+  TCP                    8081           192.168.0.11   8080          
+
+ Interfaces réseau :
+ -------------------
+
+                         Lien           Débit entrant  Débit sortant 
+                         --             --             --            
+  WAN                    Ok             0 ko/s         0 ko/s        
+  Ethernet                              0 ko/s         0 ko/s        
+  USB                    Non connecté                                
+  Switch                 100baseTX-FD   0 ko/s         642 ko/s      
+
