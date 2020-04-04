@@ -29,9 +29,9 @@ class InfoParser(object):
     def __init__(self):
         pass
 
-    def parse_url(self, url='http://192.168.0.254/pub/fbx_info.txt'):
+    def parse_url(self, url='http://192.168.0.254/pub/fbx_info.txt', encoding='latin'):
         txt_info = urllib.request.urlopen(url).read()
-        return self.parse_string(txt_info.decode("utf-8"))
+        return self.parse_string(txt_info.decode(encoding))
 
     def parse_file(self, path):
         file = open(path, 'r')
@@ -126,7 +126,17 @@ class InfoParser(object):
 
 
 class FreeboxInfo(object):
-    pass
+    def __str__(self):
+        return """{{
+    model: {0}
+    firmware: {1}
+    connection_mode: {2}
+    uptime: {3} seconds
+    network: {4}
+    dhcp: {5}
+}}""".format(self.model, self.firmware_version, self.connexion_mode, self.uptime_in_seconds,
+             "".join(['\n        {}: {}'.format(k, self.network_interfaces[k]) for k in self.network_interfaces]),
+             "".join(['\n        {}: {}'.format(k, self.dhcp_map[k]) for k in self.dhcp_map]))
 
 
 class NetworkInterface(object):
@@ -135,3 +145,7 @@ class NetworkInterface(object):
         self.status = status
         self.throughput_in = throughput_in
         self.throughput_out = throughput_out
+
+    def __str__(self):
+        return 'NetworkInterface(name={}, status={}, in={}, out={})'\
+            .format(self.name, self.status, self.throughput_in, self.throughput_out)

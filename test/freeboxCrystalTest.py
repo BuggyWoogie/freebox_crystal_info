@@ -1,5 +1,5 @@
 import unittest
-from freeboxCrystal import freeboxCrytal
+from freeboxCrystal import freeboxCrystal
 import http.server
 import socketserver
 import threading
@@ -22,7 +22,7 @@ class HttpServer(threading.Thread):
 class MyTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.parser = freeboxCrytal.InfoParser()
+        self.parser = freeboxCrystal.InfoParser()
         self.fbx_info = self.parser.parse_file('data/fbx_info.txt')
 
     def test_general_info(self):
@@ -31,11 +31,11 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(self.fbx_info.uptime_in_seconds, (((36 * 24 + 18) * 60) + 49) * 60)
 
     def test_parse_uptime(self):
-        self.assertEqual(freeboxCrytal.parse_uptime('5 jours'), 5*24*60*60)
-        self.assertEqual(freeboxCrytal.parse_uptime('3 heures'), 3*60*60)
-        self.assertEqual(freeboxCrytal.parse_uptime('5 jours, 2 heures'), (5*24 + 2)*60*60)
-        self.assertEqual(freeboxCrytal.parse_uptime('9 jours, 13 heures, 21 minutes'), ((9*24+13)*60 + 21)*60)
-        self.assertEqual(freeboxCrytal.parse_uptime('5 jours, 13 secondes'), 5*24*60*60 + 13)
+        self.assertEqual(freeboxCrystal.parse_uptime('5 jours'), 5 * 24 * 60 * 60)
+        self.assertEqual(freeboxCrystal.parse_uptime('3 heures'), 3 * 60 * 60)
+        self.assertEqual(freeboxCrystal.parse_uptime('5 jours, 2 heures'), (5 * 24 + 2) * 60 * 60)
+        self.assertEqual(freeboxCrystal.parse_uptime('9 jours, 13 heures, 21 minutes'), ((9 * 24 + 13) * 60 + 21) * 60)
+        self.assertEqual(freeboxCrystal.parse_uptime('5 jours, 13 secondes'), 5 * 24 * 60 * 60 + 13)
 
     def test_network_interface(self):
         self.assertEqual(len(self.fbx_info.network_interfaces), 4)
@@ -64,7 +64,7 @@ class MyTestCase(unittest.TestCase):
         port = 18181
         http_server = HttpServer(port)
         http_server.start()
-        info = self.parser.parse_url('http://localhost:'+str(port)+'/data/fbx_info.txt')
+        info = self.parser.parse_url('http://localhost:'+str(port)+'/data/fbx_info.txt', 'utf-8')
 
         self.assertEqual(info.firmware_version, '1.5.11')
         self.assertEqual(info.model, 'Freebox ADSL')
