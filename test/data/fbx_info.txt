@@ -98,8 +98,8 @@ Réseau :
 
                          Lien           Débit entrant  Débit sortant 
                          --             --             --            
-  WAN                    Ok             0 ko/s         0 ko/s        
-  Ethernet                              0 ko/s         0 ko/s        
+  WAN                    Ok             10 ko/s        43 ko/s
+  Ethernet                              1346 ko/s      87 ko/s
   USB                    Non connecté                                
-  Switch                 100baseTX-FD   0 ko/s         642 ko/s      
+  Switch                 100baseTX-FD   2 ko/s         642 ko/s
 
