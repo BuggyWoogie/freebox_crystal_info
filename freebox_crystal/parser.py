@@ -67,7 +67,7 @@ class InfoParser(object):
             elif 'firmware' in title.lower():
                 fbx_info.firmware_version = content
             elif 'mode' in title.lower() and 'connection' in title.lower():
-                fbx_info.connexion_mode = content
+                fbx_info.connection_mode = content
             elif re.compile('temps.*route').findall(title.lower()):
                 fbx_info.uptime_in_seconds = parse_uptime(content)
             else:
@@ -126,6 +126,16 @@ class InfoParser(object):
 
 
 class FreeboxInfo(object):
+    def __init__(self, model=None, firmware=None, connection_mode=None, uptime=0, network=dict(),
+                 network_interfaces=dict(), dhcp=dict()):
+        self.model = model
+        self.firmware = firmware
+        self.connection_mode = connection_mode
+        self.uptime = uptime
+        self.network = network
+        self.network_interfaces = network_interfaces
+        self.dhcp_map = dhcp
+
     def __str__(self):
         return """{{
     model: {0}
@@ -134,7 +144,7 @@ class FreeboxInfo(object):
     uptime: {3} seconds
     network: {4}
     dhcp: {5}
-}}""".format(self.model, self.firmware_version, self.connexion_mode, self.uptime_in_seconds,
+}}""".format(self.model, self.firmware_version, self.connection_mode, self.uptime_in_seconds,
              "".join(['\n        {}: {}'.format(k, self.network_interfaces[k]) for k in self.network_interfaces]),
              "".join(['\n        {}: {}'.format(k, self.dhcp_map[k]) for k in self.dhcp_map]))
 
